@@ -1,11 +1,11 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+title: Teaching
+description: My current teaching.
 nav: true
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+Currently, my main teaching obligations are as examiner and course leader in TDDD14/TDDD85 (automata theory and formal languages), TDP015 (introduction to mathematics), and TDDD08 (logic programming).
 
-Organize your courses by years, topics, or universities, however you like!
+Interested in doing a theoretically oriented thesis in computer science or discrete mathematics? Feel free to contact me for recent proposals.
