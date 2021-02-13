@@ -17,10 +17,10 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-* Academic CV.
+* [Academic CV](https://www.ida.liu.se/~vicla67/cv.pdf).
 
 * [University page](https://www.ida.liu.se/~vicla67/).
 
-* My sporadically updated logic programming blog.
+* My sporadically updated [logic programming blog](http://prologomenon.wordpress.com).
 
 
