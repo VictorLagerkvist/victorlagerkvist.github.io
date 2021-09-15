@@ -1,0 +1,23 @@
+---
+layout: distill
+title: Introduction to complexity classes
+date: 2021-02-12 
+description: A crash course in complexity
+
+authors:
+  - name: Victor Lagerkvist
+    affiliations:
+      name: TCSLAB, Linköping university
+---
+
+In this entry I will present two computational problems and discuss the corresponding complexity classes. This may sound like a lowly goal even for an introductory post, but we will see that even these basic definitions will culminate into the infamous P = NP question, which is the most important unresolved question in theoretical computer science. 
+
+### Two problems from logic
+
+Let us begin by presenting two computational logic from propositiona logic. In propositional logic the basic building blocks are *atoms*, or *propositional variables*, which can be either true (1) or false (0). One can then combine atoms with logical connectives, $$\land$$, $$\leftarrow$$, ..., to form more complicated 
+
+**Sorting**
+
+Instance: A sequence $$x_1, \ldots, x_n$$ of natural numbers.
+
+Goal: Find a permutation $$\pi : \{1, \ldots, n\} \rightarrow \{1, \ldots, n\}$$ such that $$x_{\pi(i)} \leq x_{\pi(i+1)}$$ for each $$i \in \{1, \ldots, n - 1\}$$.
