@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Associate professor with habilitation (universitetslektor + docent) at the theoretical computer science laboratory (TCSLAB), Linköping university.
+description: Associate professor with habilitation (Universitetslektor + docent) at the theoretical computer science laboratory (TCSLAB), Linköping university.
 
 profile:
   align: right
