@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-* [Academic CV] (/assets/pdf/cv.pdf).
+* [Academic CV](/assets/pdf/cv.pdf).
 
 * [University page](https://www.ida.liu.se/~vicla67/).
 
