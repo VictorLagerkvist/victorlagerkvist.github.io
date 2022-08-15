@@ -465,7 +465,7 @@ journal = {Journal of Multiple-Valued Logic and Soft Computing},
   pdf = {ijcai2022.pdf},
 }
 
-@article{DBLP:journals/corr/abs-2207-12368,
+@article{lagerkvist2022e,
   author    = {A. Baril and
                M. Couceiro and
                V. Lagerkvist},
@@ -484,7 +484,7 @@ journal = {Journal of Multiple-Valued Logic and Soft Computing},
   pdf = {arxiv2022a.pdf}
 }
 
-@Article{Jonsson2022,
+@Article{lagerkvist2022f,
 author={Jonsson, P.
 and Lagerkvist, V.},
 title={General Lower Bounds and Improved Algorithms for Infinite-Domain CSPs},
