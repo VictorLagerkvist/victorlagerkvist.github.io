@@ -2,17 +2,20 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: Journal articles and conference papers in reverse chronological order.
+description: Journal articles and conference papers.
 nav: true
 nav_order: 2
 ---
 
-## Journal Articles
+<!-- _pages/publications.md -->
 
-{% bibliography -q @article %}
+<!-- Bibsearch Feature -->
 
-## Conferences Papers
+{% include bib_search.liquid %}
 
-{% bibliography -q @inproceedings %}
+<div class="publications">
 
+{% bibliography %}
+
+</div>
 
