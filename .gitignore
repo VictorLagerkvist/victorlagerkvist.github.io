@@ -1,3 +1,5 @@
+.ipynb_checkpoints/
+assets/css/custom-klipse.css
 _site
 .bundle
 .sass-cache
