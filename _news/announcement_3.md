@@ -1,8 +1,0 @@
----
-layout: post
-date: 2022-12-09 16:00:00-0400
-inline: true
----
-
-I'm currently looking for a PhD student in complexity, algebra and constraint satisfaction problems. Contact me for additional details.
-
