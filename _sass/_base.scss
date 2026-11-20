@@ -48,6 +48,12 @@ table.table a {
   }
 }
 
+// In dark mode, give tables the theme's text colour straight away. Otherwise their
+// text stays dark (invisible) until JavaScript adds .table-dark after the page loads.
+html[data-theme="dark"] .table {
+  color: var(--global-text-color);
+}
+
 .table-dark {
   background-color: transparent;
   &.table-bordered {
