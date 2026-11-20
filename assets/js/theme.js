@@ -24,12 +24,24 @@ let setThemeSetting = (themeSetting, animate = true) => {
 };
 
 // Apply the computed dark or light theme to the website.
+// With `animate`, the change is shown as one smooth cross-fade of the whole page (View
+// Transitions API) where the browser supports it, otherwise as a short colour fade.
+// Visitors who ask for reduced motion get no animation.
 let applyTheme = (animate = true) => {
-  let theme = determineComputedTheme();
-
-  if (animate) {
+  let reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (animate && !reduceMotion && document.startViewTransition && document.body) {
+    document.startViewTransition(applyThemeNow);
+    return;
+  }
+  if (animate && !reduceMotion) {
     transTheme();
   }
+  applyThemeNow();
+};
+
+let applyThemeNow = () => {
+  let theme = determineComputedTheme();
+
   setHighlight(theme);
   setGiscusTheme(theme);
   setSearchTheme(theme);
@@ -206,7 +218,7 @@ let transTheme = () => {
   document.documentElement.classList.add("transition");
   window.setTimeout(() => {
     document.documentElement.classList.remove("transition");
-  }, 500);
+  }, 300);
 };
 
 // Determine the expected state of the theme toggle, which can be "dark", "light", or
