@@ -1,15 +1,14 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Flip between light and dark, so that every click visibly changes the page. (The
+// original cycle system -> light -> dark -> system had a click that changed nothing
+// whenever "system" and the next setting looked the same.) If the new theme is the
+// same as the operating system's, go back to following the system.
 let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
-  } else {
-    setThemeSetting("system");
-  }
+  let next = determineComputedTheme() == "dark" ? "light" : "dark";
+  let systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let systemTheme = systemDark ? "dark" : "light";
+  setThemeSetting(next == systemTheme ? "system" : next);
 };
 
 // Change the theme setting and apply the theme.
@@ -27,10 +26,28 @@ let setThemeSetting = (themeSetting, animate = true) => {
 // With `animate`, the change is shown as one smooth cross-fade of the whole page (View
 // Transitions API) where the browser supports it, otherwise as a short colour fade.
 // Visitors who ask for reduced motion get no animation.
+// The page is only animated while it is visible (hidden tabs get no animation frames,
+// which would delay the change). A click during a running fade finishes that fade
+// at once, so no theme change is ever lost.
+let themeTransition = null;
 let applyTheme = (animate = true) => {
   let reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (animate && !reduceMotion && document.startViewTransition && document.body) {
-    document.startViewTransition(applyThemeNow);
+  if (animate && !reduceMotion && document.startViewTransition && document.body && document.visibilityState === "visible") {
+    if (themeTransition) {
+      themeTransition.skipTransition();
+    }
+    let transition = document.startViewTransition(applyThemeNow);
+    themeTransition = transition;
+    // A skipped fade rejects these promises; that is expected and harmless.
+    transition.ready.catch(() => {});
+    transition.updateCallbackDone.catch(() => {});
+    transition.finished
+      .catch(() => {})
+      .then(() => {
+        if (themeTransition === transition) {
+          themeTransition = null;
+        }
+      });
     return;
   }
   if (animate && !reduceMotion) {
