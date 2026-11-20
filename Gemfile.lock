@@ -218,6 +218,7 @@ GEM
       stringio
       time
       uri
+    ostruct (0.6.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     prism (1.7.0)
@@ -301,6 +302,7 @@ DEPENDENCIES
   jekyll-toc
   jekyll-twitter-plugin
   jemoji
+  ostruct
   unicode_utils
   webrick
 

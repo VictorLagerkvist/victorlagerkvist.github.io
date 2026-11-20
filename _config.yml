@@ -252,6 +252,10 @@ defaults:
 
 sass:
   style: compressed
+  # The theme's SCSS uses older Sass syntax; hide the resulting (harmless)
+  # deprecation warnings so real problems are visible in the build output.
+  quiet_deps: true
+  silence_deprecations: [import, global-builtin, color-functions, if-function, slash-div]
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
@@ -259,8 +263,6 @@ sass:
 
 jekyll-minifier:
   exclude: ["robots.txt", "assets/js/search/*.js"]
-  uglifier_args:
-    harmony: true
 
 # -----------------------------------------------------------------------------
 # Jekyll Archives
@@ -370,7 +372,7 @@ external_links:
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
 imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: false # ImageMagick is not installed, so this only produced errors; set to true after `brew install imagemagick`. Enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
   widths:
     - 480
     - 800

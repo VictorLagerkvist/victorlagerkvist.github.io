@@ -31,3 +31,4 @@ end
 # TODO: Remove when this gets fixed in Jekyll
 gem "csv"
 gem "base64"
+gem "ostruct" # used by jekyll-twitter-plugin; no longer a default gem from Ruby 3.5
